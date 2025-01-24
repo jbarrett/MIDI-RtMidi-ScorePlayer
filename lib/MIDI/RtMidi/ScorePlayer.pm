@@ -2,7 +2,7 @@ package MIDI::RtMidi::ScorePlayer;
 
 # ABSTRACT: Play a MIDI score in real-time
 
-our $VERSION = '0.0202';
+our $VERSION = '0.0203';
 
 use strict;
 use warnings;
@@ -29,7 +29,7 @@ use Time::HiRes qw(time usleep);
       my (%args) = @_;
       ...; # Setup things
       my $treble = sub {
-          for my $i (1 .. 8) {
+          for my $i (1 .. 8) { # 2 measures
               if ($i % 2) {
                   $args{score}->n('qn', '...');
               }
@@ -42,7 +42,7 @@ use Time::HiRes qw(time usleep);
   }
   sub bass {
       my (%args) = @_;
-      # to play alone, this is needed:
+      # to play alone, an arrayref defining 2 measures is needed:
       $common{'tick.durations'} = [ ('hn') x 4 ];
       my $bass = sub {
       ...; # As above but different!
