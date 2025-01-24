@@ -21,21 +21,12 @@ MIDI::RtMidi::ScorePlayer->new(
 sub part {
     my (%args) = @_;
     my $part = sub {
-        $args{score}->n('qn', 'C4');
-        $args{score}->n('qn', 'D4');
-        $args{score}->n('qn', 'D4');
+        for (1 .. 3) {
+            $args{score}->n('qn', 'C4');
+            $args{score}->n('qn', 'D4');
+            $args{score}->n('qn', 'D4');
+        }
 
-        $args{score}->n('qn', 'C4');
-        $args{score}->n('qn', 'D4');
-        $args{score}->n('qn', 'D4');
-
-        $args{score}->n('qn', 'C4');
-        $args{score}->n('qn', 'D4');
-        $args{score}->n('qn', 'D4');
-
-        $args{score}->n('qn', 'C4');
-        $args{score}->n('qn', 'D4');
-        $args{score}->n('qn', 'D4');
         $args{score}->n('qn', 'D4');
         $args{score}->n('qn', 'C4');
     };
