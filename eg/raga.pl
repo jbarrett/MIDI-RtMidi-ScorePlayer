@@ -21,7 +21,6 @@ MIDI::RtMidi::ScorePlayer->new(
 sub part {
     my (%args) = @_;
     my $part = sub {
-        set_chan_patch($args{score}, 0, 0);
         $args{score}->n('qn', 'C4');
         $args{score}->n('qn', 'D4');
         $args{score}->n('qn', 'D4');
