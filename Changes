@@ -1,6 +1,7 @@
 Revision history for MIDI-RtMidi-ScorePlayer
 
 {{$NEXT}}
+    - Fix synopsis.
 
 0.0202 2024-08-10 23:42:44
     - Fix annoying typo.
