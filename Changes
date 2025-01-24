@@ -1,6 +1,8 @@
 Revision history for MIDI-RtMidi-ScorePlayer
 
 {{$NEXT}}
+
+0.0204 2025-01-24 10:14:25
     - Fix synopsis.
     - Add the Mac "IAC Driver" virtual port to the possibles.
 
