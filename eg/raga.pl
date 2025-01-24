@@ -26,7 +26,6 @@ sub part {
             $args{score}->n('qn', 'D4');
             $args{score}->n('qn', 'D4');
         }
-
         $args{score}->n('qn', 'D4');
         $args{score}->n('qn', 'C4');
     };
