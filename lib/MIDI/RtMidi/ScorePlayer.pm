@@ -61,6 +61,7 @@ use Time::HiRes qw(time usleep);
       deposit  => 'path/prefix-', # optionally make a file after each loop
       verbose  => 0, # print out text events (default: 0)
       dump     => 0, # dump the score before each play (default: 0)
+      port     => qr/iac/, # optional
   )->play;
 
 =head1 DESCRIPTION
@@ -139,7 +140,7 @@ sub new {
 
     $opts{device} = RtMidiOut->new;
 
-    $opts{port} //= qr/wavetable|loopmidi|timidity|fluid/i;
+    $opts{port} //= qr/wavetable|loopmidi|timidity|fluid|iac/i;
 
     # For MacOS, DLSMusicDevice should receive input from this virtual port:
     $opts{device}->open_virtual_port('dummy') if $^O eq 'darwin';
