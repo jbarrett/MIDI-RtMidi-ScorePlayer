@@ -50,6 +50,10 @@ use Time::HiRes qw(time usleep);
       return $bass;
   }
 
+  # optional:
+  use MIDI::RtMidi::FFI::Device ();
+  my $midi_output = $opts{device} = RtMidiOut->new;
+
   MIDI::RtMidi::ScorePlayer->new(
       score    => $score, # required MIDI score object
       parts    => [ \&bass, [ \&treble, \&bass ], \&bass ], # required part functions
@@ -62,7 +66,7 @@ use Time::HiRes qw(time usleep);
       verbose  => 0, # print out text events (default: 0)
       dump     => 0, # dump the score before each play (default: 0)
       port     => qr/iac/, # optional
-      device   => $midi_output_device_object, # optional
+      device   => $midi_output, # optional
   )->play;
 
 =head1 DESCRIPTION
