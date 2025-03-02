@@ -1,6 +1,7 @@
 Revision history for MIDI-RtMidi-ScorePlayer
 
 {{$NEXT}}
+    - Allow the MIDI output device to be specified in the constructor.
 
 0.0204 2025-01-24 10:14:25
     - Fix synopsis.
