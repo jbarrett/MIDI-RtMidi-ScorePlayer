@@ -52,7 +52,7 @@ use Time::HiRes qw(time usleep);
 
   # optional:
   use MIDI::RtMidi::FFI::Device ();
-  my $midi_output = $opts{device} = RtMidiOut->new;
+  my $midi_output = RtMidiOut->new;
 
   MIDI::RtMidi::ScorePlayer->new(
       score    => $score, # required MIDI score object
