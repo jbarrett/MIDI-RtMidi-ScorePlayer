@@ -138,14 +138,16 @@ sub new {
         die "Invalid path: $opts{path}\n" unless -d $opts{path};
     }
 
-    $opts{device} = RtMidiOut->new;
+    unless ($opts{device}) {
+        $opts{device} = RtMidiOut->new;
 
-    $opts{port} //= qr/wavetable|loopmidi|timidity|fluid|iac/i;
+        $opts{port} //= qr/wavetable|loopmidi|timidity|fluid|iac/i;
 
-    # For MacOS, DLSMusicDevice should receive input from this virtual port:
-    $opts{device}->open_virtual_port('dummy') if $^O eq 'darwin';
+        # For MacOS, DLSMusicDevice should receive input from this virtual port:
+        $opts{device}->open_virtual_port('dummy') if $^O eq 'darwin';
 
-    $opts{device}->open_port_by_name($opts{port});
+        $opts{device}->open_port_by_name($opts{port});
+    }
 
     bless \%opts, $class;
 }
@@ -189,6 +191,7 @@ sub _play {
         }
         my $useconds = $micros * $event->[1];
         usleep($useconds) if $useconds > 0 && $useconds < 1_000_000;
+warn __PACKAGE__,' L',__LINE__,' ',ddc($event, {max_width=>128});
         $self->{device}->send_event($event->[0] => @{ $event }[ 2 .. $#$event ]);
     }
     if ($self->{deposit}) {
