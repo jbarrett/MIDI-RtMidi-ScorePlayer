@@ -196,7 +196,6 @@ sub _play {
         }
         my $useconds = $micros * $event->[1];
         usleep($useconds) if $useconds > 0 && $useconds < 1_000_000;
-warn __PACKAGE__,' L',__LINE__,' ',ddc($event, {max_width=>128});
         $self->{device}->send_event($event->[0] => @{ $event }[ 2 .. $#$event ]);
     }
     if ($self->{deposit}) {
