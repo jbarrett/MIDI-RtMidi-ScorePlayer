@@ -51,6 +51,7 @@ use Time::HiRes qw(time usleep);
   }
 
   MIDI::RtMidi::ScorePlayer->new(
+      device   => $midi_output_device,
       score    => $score, # required MIDI score object
       parts    => [ \&bass, [ \&treble, \&bass ], \&bass ], # required part functions
       common   => \%common, # arguments given to the part functions
