@@ -1,6 +1,7 @@
 Revision history for MIDI-RtMidi-ScorePlayer
 
 {{$NEXT}}
+    - Stuopid, misleading typo in the synopsis code. :(
 
 0.0207 2025-03-04 15:13:16
     - ARGH - Force the MIDIout port in the eg/ programs. :(
